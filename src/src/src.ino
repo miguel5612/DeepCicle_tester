@@ -29,9 +29,10 @@ void loop() {
   temp=current;
   temp=temp-512;
   current=temp/13.6;
+  current = current + 6;
 
   temp = v;
-  voltage = (temp*14)/1024; // 1024 on Analog pin is 14 volts - Full charged battery  
+  voltage = (temp*14.5)/1024.0; // 1024 on Analog pin is 14 volts - Full charged battery  
   
   //lcd.clear(); //clear screen
   // print out the value you read:
@@ -43,7 +44,7 @@ void loop() {
   lcd.setCursor(2,0);
     lcd.print("V=");
     lcd.print(voltage);
-    lcd.print(" V");
+    lcd.print(" V        ");
   Serial.print("current=");
   Serial.print(current);
   Serial.println("A");
@@ -51,7 +52,6 @@ void loop() {
     lcd.print("Current=");
     lcd.setCursor(8,1);
     lcd.print(current);
-    lcd.setCursor(15,1);
-    lcd.print(" A");
+    lcd.print(" A          ");
   delay(300);        // delay in between reads for stability
 }
